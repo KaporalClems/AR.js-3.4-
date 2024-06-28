@@ -1,36 +1,44 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Location-based AR.js demo</title>
-    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-    <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
-    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Location-based AR.js demo</title>
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+</head>
 
-  <body style="margin: 0; overflow: hidden;">
-    <a-scene
-      vr-mode-ui="enabled: True"
-      embedded
-      arjs="sourceType: webcam; debugUIEnabled: true;"
-    >
-      <!-- Image sur le sommet du Piton des Neiges -->
-      <a-entity gps-entity-place="latitude: -21.0807; longitude: 55.4714">
-        <a-image src="https://github.com/KaporalClems/AR.js-Cilaos-/blob/main/Piton%20des%20Neiges%203070%20m.png?raw=true" scale="500 500 500" look-at="[gps-camera]"></a-image>
-      </a-entity>
+<body style="margin: 0; overflow: hidden;">
+  <a-scene
+    vr-mode-ui="enabled: false"
+    embedded
+    arjs="sourceType: webcam; debugUIEnabled: false;"
+  >
+    <!-- Image sur le sommet du Piton des Neiges -->
+    <a-entity gps-entity-place="latitude: -21.098368605821022; longitude: 55.48052747056074">
+      <a-image src="https://github.com/KaporalClems/AR.js-Cilaos-/blob/main/Piton%20des%20Neiges%203070%20m.png?raw=true" scale="50 50 50" look-at="[gps-camera]"></a-image>
+    </a-entity>
 
-      <!-- Image sur le sommet du Grand Bénare -->
-      <a-entity gps-entity-place="latitude: -21.0936; longitude: 55.4206">
-        <a-image src="https://github.com/KaporalClems/AR.js-Cilaos-/blob/main/Grand%20b%C3%A9nare%202898%20m.png?raw=true" scale="500 500 500" look-at="[gps-camera]"></a-image>
-      </a-entity>
+    <!-- Image sur le sommet du Grand Bénare -->
+    <a-entity gps-entity-place="latitude: -21.115600782276918; longitude: 55.42285202175834">
+      <a-image src="https://github.com/KaporalClems/AR.js-Cilaos-/blob/main/Grand%20b%C3%A9nare%202898%20m.png?raw=true" scale="50 50 50" look-at="[gps-camera]"></a-image>
+    </a-entity>
 
-      <!-- Image sur le sommet du Bonnet de Prêtre -->
-      <a-entity gps-entity-place="latitude: -21.1100; longitude: 55.4500">
-        <a-image src="https://github.com/KaporalClems/AR.js-Cilaos-/blob/main/Bonnet%20de%20pr%C3%AAtre%201709%20m.png?raw=true" scale="500 500 500" look-at="[gps-camera]"></a-image>
-      </a-entity>
+    <!-- Image sur le sommet du Bonnet de prêtre -->
+    <a-entity gps-entity-place="latitude: -21.14991; longitude: 55.49164">
+      <a-image src="https://github.com/KaporalClems/AR.js-Cilaos-/blob/main/Bonnet%20de%20pr%C3%AAtre%201709%20m.png?raw=true" scale="50 50 50" look-at="[gps-camera]"></a-image>
+    </a-entity>
 
-      <a-camera gps-camera rotation-reader></a-camera>
-    </a-scene>
-  </body>
+    <!-- Vérifiez que la caméra GPS est ajoutée correctement -->
+    <a-camera gps-camera rotation-reader></a-camera>
+  </a-scene>
+  
+  <script>
+    // Ajoutez des vérifications pour le chargement des entités
+    document.querySelector('a-scene').addEventListener('loaded', () => {
+      console.log('A-Frame scene loaded');
+    });
+  </script>
+</body>
 </html>
